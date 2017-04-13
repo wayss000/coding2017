@@ -82,9 +82,12 @@ public class LRU {
             current = tempNode;
             length++;
         }
-        //缓存满了，需要把head节点的值替换掉
+        //缓存满了，查找缓存中有没有数据
         else{
-            resetHeadNode(data);
+            if(!searchNode(data)){
+                //缓存中没有，需要给head节点重新赋值
+                resetHeadNode(data);
+            }
         }
     }
     
